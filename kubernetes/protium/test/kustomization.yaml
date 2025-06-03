@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../base
+
+images:
+- name: registry.cn-shanghai.aliyuncs.com/scienceol/service
+  newTag: dev
+- name: registry.cn-shanghai.aliyuncs.com/scienceol/protium  
+  newTag: dev
+
+namespace: protium-test
+
+patchesStrategicMerge:
+- |-
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: protium-service
+  spec:
+    replicas: 3

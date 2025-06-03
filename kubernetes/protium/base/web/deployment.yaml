@@ -1,0 +1,32 @@
+# Protium 前端服务的 Kubernetes Service 配置
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: protium
+  namespace: protium
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: protium
+  template:
+    metadata:
+      labels:
+        app: protium
+    spec:
+      containers:
+        - name: protium
+          image: registry.cn-shanghai.aliyuncs.com/scienceol/protium
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: '4'
+              memory: '8Gi'
+            requests:
+              cpu: '2'
+              memory: '4Gi'
+          envFrom:
+            - configMapRef:
+                name: protium-config
+          ports:
+            - containerPort: 32234

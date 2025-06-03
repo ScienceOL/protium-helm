@@ -1,0 +1,13 @@
+# Protium 前端服务的 Kubernetes Service 配置
+apiVersion: v1
+kind: Service
+metadata:
+  name: protium
+  namespace: protium
+spec:
+  type: ClusterIP
+  selector:
+    app: protium
+  ports:
+    - port: 32234
+      targetPort: 32234

@@ -1,0 +1,43 @@
+# 后端服务部署
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: protium-service
+  namespace: protium
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: protium-service
+  template:
+    metadata:
+      labels:
+        app: protium-service
+    spec:
+      containers:
+        - name: protium-service
+          image: registry.cn-shanghai.aliyuncs.com/scienceol/service
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: '8'
+              memory: '16Gi'
+            requests:
+              cpu: '4'
+              memory: '8Gi'
+          envFrom:
+            - configMapRef:
+                name: protium-config
+            - secretRef:
+                name: protium-secrets
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - name: certs-volume
+              mountPath: '/app/.certs'
+              readOnly: true
+      volumes:
+        - name: certs-volume
+          secret:
+            secretName: protium-certs
+            optional: false

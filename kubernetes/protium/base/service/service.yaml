@@ -1,0 +1,13 @@
+# 后端服务暴露
+apiVersion: v1
+kind: Service
+metadata:
+  name: protium-service
+  namespace: protium
+spec:
+  type: ClusterIP
+  selector:
+    app: protium-service
+  ports:
+    - port: 8000
+      targetPort: 8000
