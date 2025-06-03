@@ -12,11 +12,15 @@ images:
 
 namespace: protium
 
-patchesStrategicMerge:
-- |-
-  apiVersion: apps/v1
-  kind: Deployment
-  metadata:
+patches:
+- target:
+    kind: Deployment
     name: protium-service
-  spec:
-    replicas: 3
+    namespace: protium
+  patch: |-
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: protium-service
+    spec:
+      replicas: 3
