@@ -31,7 +31,7 @@ spec:
             - secretRef:
                 name: protium-secrets
           ports:
-            - containerPort: 8000
+            - containerPort: 48197
           volumeMounts:
             - name: certs-volume
               mountPath: '/app/.certs'
