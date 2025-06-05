@@ -2,25 +2,25 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- ../base
+  - ../base
 
 images:
-- name: registry.cn-shanghai.aliyuncs.com/scienceol/service
-  newTag: latest
-- name: registry.cn-shanghai.aliyuncs.com/scienceol/protium  
-  newTag: latest
+  - name: registry.aissquare.com/base/service
+    newTag: latest
+  - name: registry.aissquare.com/base/web
+    newTag: latest
 
 namespace: protium
 
 patches:
-- target:
-    kind: Deployment
-    name: protium-service
-    namespace: protium
-  patch: |-
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
+  - target:
+      kind: Deployment
       name: protium-service
-    spec:
-      replicas: 3
+      namespace: protium
+    patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: protium-service
+      spec:
+        replicas: 3
