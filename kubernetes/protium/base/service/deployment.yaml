@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: protium-service
-          image: registry.cn-shanghai.aliyuncs.com/scienceol/service
+          image: registry.aissquare.com/base/service
           imagePullPolicy: Always
           resources:
             limits:
