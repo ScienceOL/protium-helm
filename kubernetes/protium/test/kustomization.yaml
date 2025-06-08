@@ -16,7 +16,7 @@ patches:
   - target:
       kind: Deployment
       name: protium-service
-      namespace: protium
+      namespace: protium-test
     patch: |-
       apiVersion: apps/v1
       kind: Deployment

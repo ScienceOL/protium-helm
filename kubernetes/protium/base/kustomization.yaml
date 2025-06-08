@@ -6,5 +6,3 @@ resources:
 - service/service.yaml
 - web/deployment.yaml
 - web/service.yaml
-
-namespace: protium
