@@ -12,26 +12,26 @@ images:
 
 namespace: protium-test
 
-patches:
-  - target:
-      kind: Deployment
-      name: protium-service
-      namespace: protium-test
-    patch: |-
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: protium-service
-      spec:
-        replicas: 3
-  - target:
-      kind: Deployment
-      name: protium
-      namespace: protium-test
-    patch: |-
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: protium
-      spec:
-        replicas: 1
+# patches:
+#   - target:
+#       kind: Deployment
+#       name: protium-service
+#       namespace: protium-test
+#     patch: |-
+#       apiVersion: apps/v1
+#       kind: Deployment
+#       metadata:
+#         name: protium-service
+#       spec:
+#         replicas: 3
+#   - target:
+#       kind: Deployment
+#       name: protium
+#       namespace: protium-test
+#     patch: |-
+#       apiVersion: apps/v1
+#       kind: Deployment
+#       metadata:
+#         name: protium
+#       spec:
+#         replicas: 1
