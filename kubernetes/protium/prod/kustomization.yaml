@@ -12,15 +12,15 @@ images:
 
 namespace: protium
 
-patches:
-  - target:
-      kind: Deployment
-      name: protium-service
-      namespace: protium
-    patch: |-
-      apiVersion: apps/v1
-      kind: Deployment
-      metadata:
-        name: protium-service
-      spec:
-        replicas: 3
+# patches:
+#   - target:
+#       kind: Deployment
+#       name: protium-service
+#       namespace: protium
+#     patch: |-
+#       apiVersion: apps/v1
+#       kind: Deployment
+#       metadata:
+#         name: protium-service
+#       spec:
+#         replicas: 3
